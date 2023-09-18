@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2023/09/16 17:19:41
+// Create Date: 2023/09/18 10:14:20
 // Design Name: 
-// Module Name: priorityencoder
+// Module Name: Mux_2to1
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,12 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module priorityencoder(D,x,y,v );
-input [3:0] D;
-output x,y,v;
+module Mux_2to1(in0,in1,in2,in3,Signal,outR);
+    input [1:0] in0,in1,in2,in3;
+input [1:0] Signal;
+output reg [1:0] outR;
 
-assign x= D[3] || ( (~D[3])&&D[2] );
-assign y= D[3] || ( (~D[2])&&D[1] );
-assign v= D[3] || ( (~D[3])&&D[2] ) || ( (~D[3])&&(~D[2])&&D[0] )|| ( (~D[0])&&D[1] ) ;
+always @(Signal) begin
+    case(Signal)
+        2'b00 : outR=in0;
+        2'b01 : outR=in1;
+        2'b10 : outR=in2;
+        2'b11 : outR=in3; 
+    endcase        
+
+end
 
 endmodule
