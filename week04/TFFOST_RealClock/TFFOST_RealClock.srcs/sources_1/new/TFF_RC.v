@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2023/09/22 18:01:48
+// Create Date: 2023/09/25 08:38:15
 // Design Name: 
-// Module Name: TFF_withOneShot
+// Module Name: TFF_RC
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module TFF_withOneShot(clk,rst,T,Q);
+module TFF_RC(clk,rst,T,Q);
 input clk, rst, T;
 output reg Q;
 reg T_reg, T_trig;
@@ -41,4 +41,3 @@ always @(posedge clk or negedge rst) begin
 end
 
 endmodule
-
