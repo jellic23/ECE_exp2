@@ -113,11 +113,11 @@ begin
             DISP_ONOFF :
                 {LCD_RS, LCD_RW, LCD_DATA} = 10'b0_0_0000_1100;
             ENTRY_MODE :
-                {LCD_RS, LCD_RW, LCD_DATA} = 10'b0_0_0000_0110;
+                {LCD_RS, LCD_RW, LCD_DATA} = 10'b0_0_0000_0101;
             LINE1 :
                 begin
                     case(cnt)
-                        00 : {LCD_RS, LCD_RW, LCD_DATA} = 10'b0_0_0000_0000;
+                        00 : {LCD_RS, LCD_RW, LCD_DATA} = 10'b0_0_1000_0000;
                         01 : {LCD_RS, LCD_RW, LCD_DATA} = 10'b1_0_0010_0000; // 
                         02 : {LCD_RS, LCD_RW, LCD_DATA} = 10'b1_0_0100_1000; //H
                         03 : {LCD_RS, LCD_RW, LCD_DATA} = 10'b1_0_0100_0101; //E
