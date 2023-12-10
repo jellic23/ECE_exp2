@@ -36,16 +36,46 @@ end
 
 always @(*) begin
     case (bcd[3:0])
-        0 : seg_data = 8'b11111100;
-        1 : seg_data = 8'b01100000;
-        2 : seg_data = 8'b11011010;
-        3 : seg_data = 8'b11110010;
-        4 : seg_data = 8'b01100110;
-        5 : seg_data = 8'b10110110;
-        6 : seg_data = 8'b10111110;
-        7 : seg_data = 8'b11100000;
-        8 : seg_data = 8'b11111110;
-        9 : seg_data = 8'b11110110;
+        0 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b11111101;
+            else seg_data = 8'b11111100;          //
+        end 
+        1 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b01100001;
+            else seg_data = 8'b01100000;
+        end
+        2 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b11011011;
+            else seg_data = 8'b11011010;
+        end
+        3 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b11110011;
+            else seg_data = 8'b11110010;
+        end
+        4 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b01100111;
+            else seg_data = 8'b01100110;
+        end
+        5 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b10110111;
+            else seg_data = 8'b10110110;
+        end
+        6 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b10111111;
+            else seg_data = 8'b10111110;
+        end
+        7 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b11100001;
+            else seg_data = 8'b11100000;
+        end
+        8 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b11111111;
+            else seg_data = 8'b11111110;
+        end
+        9 : begin
+            if(seg_sel==8'b11111110 || seg_sel==8'b11111011 || seg_sel==8'b11101111 ) seg_data = 8'b11110111;
+            else seg_data = 8'b11110110;
+        end
         default : seg_data = 8'b00000000;
     endcase
 end
@@ -54,12 +84,12 @@ always @(*) begin
     case(seg_sel)
         8'b11111110 : bcd = state_bcd[3:0];
         8'b11111101 : bcd = state_bcd[7:4];
-        8'b11111011 : bcd = 4'b0000;
-        8'b11110111 : bcd = state_bcd[11:8];
-        8'b11101111 : bcd = state_bcd[15:12];
-        8'b11011111 : bcd = 4'b0000;
-        8'b10111111 : bcd = state_bcd[19:16];
-        8'b01111111 : bcd = state_bcd[23:20];
+        8'b11111011 : bcd = state_bcd[11:8];
+        8'b11110111 : bcd = state_bcd[15:12];
+        8'b11101111 : bcd = state_bcd[19:16];
+        8'b11011111 : bcd = state_bcd[23:20];
+        8'b10111111 : bcd = 4'b1100;
+        8'b01111111 : bcd = 4'b1100;
         default : bcd =4'b0000;
     endcase
 end
