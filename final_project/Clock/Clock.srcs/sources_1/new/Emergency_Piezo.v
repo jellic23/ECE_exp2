@@ -9,7 +9,7 @@ input [47:0] emergency_clkby;
 
 output reg piezo;
 
-reg [47:0] pta;
+
 
 reg [11:0] cnt;
 reg [11:0] cnt_limit;
@@ -133,15 +133,6 @@ always @(posedge clk or negedge rst) begin
     end
 end
 
-always @(posedge clk or negedge rst) begin
-    if(!rst) begin
-        pta <= 1;
-    end
-    else begin
-        if(pta == 100000) pta <= 1;
-        else pta <= pta + 1;
-    end
-end
 
 always @(posedge clk or negedge rst) begin
     if(!rst) begin

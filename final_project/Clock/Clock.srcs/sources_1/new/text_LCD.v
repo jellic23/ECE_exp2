@@ -375,7 +375,7 @@ begin
                         end
                         10 : begin
                             if(emergency_buffering >= 1) begin
-                                {LCD_RS, LCD_RW, LCD_DATA} = 10'b1_0_0010_0001; //, *
+                                {LCD_RS, LCD_RW, LCD_DATA} = 10'b1_0_0010_0001; //! *
                             end
                             else begin
                                 {LCD_RS, LCD_RW, LCD_DATA} = 10'b1_0_0010_1100; //, *

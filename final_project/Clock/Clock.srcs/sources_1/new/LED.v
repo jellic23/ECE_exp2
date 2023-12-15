@@ -31,12 +31,12 @@ parameter green  = {8'd0  , 8'd255, 8'd0  };
 parameter blue   = {8'd0  , 8'd0  , 8'd255};
 parameter indigo = {8'd0  , 8'd0  , 8'd128};
 parameter purple = {8'd128, 8'd0  , 8'd128};
-parameter pink   = {8'd255, 8'd192, 3'd203};
-parameter white  = {8'd255, 8'd255, 3'd255};
-parameter black  = {8'd0  , 8'd0  , 3'd0  };
-parameter brown  = {8'd120, 8'd70 , 3'd70 };
+parameter pink   = {8'd255, 8'd0  , 8'd203};
+parameter white  = {8'd255, 8'd255, 8'd255};
+parameter black  = {8'd0  , 8'd0  , 8'd0  };
+parameter brown  = {8'd120, 8'd70 , 8'd70 };
 parameter bright_yellow = {8'd192, 8'd192, 8'd0  };
-parameter cyan  = {8'd0  , 8'd255 , 3'd255};
+parameter cyan  = {8'd0  , 8'd255 , 8'd255};
 
 
 
@@ -156,10 +156,10 @@ always @(posedge clk or negedge rst) begin
         else begin
 /*                        if(cnt<=cnt1) state = red;
                         else state = yellow; */
-                        if(TIME_SCALE == 10000) state = black;
-                        else if(TIME_SCALE == 1000) state = bright_yellow;
-                        else if(TIME_SCALE == 100) state = cyan;
-                        else if(TIME_SCALE == 50) state = white;
+                        if(     TIME_SCALE == 10000) state = black;
+                        else if(TIME_SCALE == 1000 ) state = red;
+                        else if(TIME_SCALE == 100  ) state = orange;
+                        else if(TIME_SCALE == 50   ) state = yellow;
                         
                             if(cnt < state[23:16]) begin 
                                 led_signal_R = 4'b1111;
